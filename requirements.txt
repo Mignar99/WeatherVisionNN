@@ -1,0 +1,22 @@
+# Core scientific / data packages
+numpy>=1.21
+xarray>=2022.0.0
+matplotlib>=3.4
+
+# PyTorch (choose the appropriate build for your platform; see README note)
+torch>=1.13.0
+
+# Utilities
+tqdm>=4.60
+huggingface_hub>=0.12.0
+scikit-learn>=1.0
+
+# Jupyter / notebook
+jupyter
+ipython
+
+# NetCDF support for xarray
+netCDF4
+
+# Image helper
+Pillow
