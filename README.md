@@ -54,12 +54,6 @@ Notes about PyTorch:
 - Hardware: training may be slow on CPU. If you have a CUDA GPU or Apple Silicon with MPS, the notebooks automatically select `cuda` or `mps` when available.
 - Checkpoints: if you have pre-trained checkpoints (`vit_best.pth`, `vit_final.pth`) in the repository, the Transformer notebook may load them — check the notebook cells for exact filenames and loading logic.
 
-## Files to consider adding to `.gitignore` before publishing
-
-- Dataset files downloaded at runtime (if you want to avoid checking them into Git): `*.nc`
-- Large model checkpoints: `*.pth`, `*.pt`
-- Virtual environment: `.venv/`
-
 ## Contact
 
 If you want help reproducing results, converting these notebooks into scripts, or preparing a cleaned demo for GitHub Pages, open an issue or contact me.
