@@ -62,4 +62,4 @@ Notes about PyTorch:
 
 ## Contact
 
-If you want help reproducing results, converting these notebooks into scripts, or preparing a cleaned demo for GitHub Pages, open an issue or contact the repository owner.
+If you want help reproducing results, converting these notebooks into scripts, or preparing a cleaned demo for GitHub Pages, open an issue or contact me.
