@@ -1,4 +1,4 @@
-# WeatherNeuralVision
+# WeatherVisionNN
 
 This repository contains a set of Jupyter notebooks and helper scripts implementing Neural Network architectures (CNNs and Vision Transformers) for weather data analysis and prediction. The models work with air temperature data, demonstrating both classification (predicting months from temperature maps) and prediction (forecasting future temperatures) tasks using state-of-the-art deep learning architectures.
 
