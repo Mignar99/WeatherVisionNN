@@ -24,6 +24,27 @@ This repository contains a set of Jupyter notebooks and helper scripts implement
 - `plotlib.py` — plotting helper
   - Utility for visualizing batches of maps with predicted and true month labels. Used by `CNN_classifier.ipynb`.
 
+## Some Results
+
+The following summarizes the performance of the models implemented in this repository.  
+All improvements are measured with respect to a **trivial persistence baseline** namely predicting the future temperature map as identical to the latest observed one.
+
+### CNN Classifier — Temporal Attribution
+A CNN classifier was trained to infer the month of the year from a single temperature map, effectively converting weather maps into a temporal-classification dataset.
+
+- **Result:** Achieved **99.32% accuracy** on the test set.
+
+### U-Net Temperature Forecasting
+U-Net–based architectures were trained on NetCDF temperature data to predict future maps at multiple horizons.
+
+- **Result:** Improved **9-hour forecasts by 22%** relative to the persistence baseline.
+
+### Vision Transformer Forecasting
+A Vision Transformer architecture was tested on the same forecasting task.
+
+- **Result:** Achieved a **27% improvement** over the baseline for **21-hour forecasts**.
+
+
 ## Quick start / Installation
 
 1. (Recommended) Create and activate a Python virtual environment:
