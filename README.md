@@ -50,7 +50,7 @@ A Vision Transformer architecture was tested on the same forecasting task.
 
 - **Result:** Achieved a **27% improvement** over the baseline for **21-hour forecasts**.
 
-![ViT_RMSE](images/ViT_RMSE.png)
+![ViT_pred](images/ViT_pred.png)
 ![ViT_RMSE](images/ViT_RMSE.png)
 
 ## Quick start / Installation
