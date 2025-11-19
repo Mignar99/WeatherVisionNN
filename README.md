@@ -34,16 +34,24 @@ A CNN classifier was trained to infer the month of the year from a single temper
 
 - **Result:** Achieved **99.32% accuracy** on the test set.
 
+![classifier_pred](images/classifier_pred.png)
+
 ### U-Net Temperature Forecasting
 U-Net–based architectures were trained on NetCDF temperature data to predict future maps at multiple horizons.
 
 - **Result:** Improved **9-hour forecasts by 22%** relative to the persistence baseline.
+
+![CNN_pred](images/CNN_pred.png)
+![CNN_RMSE](images/CNN_RMSE.png)
+
 
 ### Vision Transformer Forecasting
 A Vision Transformer architecture was tested on the same forecasting task.
 
 - **Result:** Achieved a **27% improvement** over the baseline for **21-hour forecasts**.
 
+![ViT_RMSE](images/ViT_RMSE.png)
+![ViT_RMSE](images/ViT_RMSE.png)
 
 ## Quick start / Installation
 
