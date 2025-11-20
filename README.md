@@ -24,21 +24,21 @@ This repository contains a set of Jupyter notebooks and helper scripts implement
 - `plotlib.py` — plotting helper
   - Utility for visualizing batches of maps with predicted and true month labels. Used by `CNN_classifier.ipynb`.
 
-### Why CNNs First — and Why Transition to Vision Transformers
+### Motivations for CNNs and the Transition to Vision Transformers
 
-**CNNs were the natural starting point**: they excel at capturing **local spatial patterns** in temperature fields, leveraging strong inductive biases such as **spatial locality** and **translation invariance**. These properties make them particularly effective for  
+CNNs were the natural starting point: they excel at capturing local spatial patterns in temperature fields, leveraging strong inductive biases such as spatial locality and translation invariance. These properties make them particularly effective for  
 - short-term temperature forecasting  
 - season/month classification  
 - detecting fine-scale structures (fronts, gradients, local anomalies)
 
-**However, CNN forecasting showed early signs of overfitting at longer horizons** (notably at **21 hours**):  
+However, CNN forecasting showed early signs of overfitting at longer horizons (notably at 21 hours):  
 - training loss kept decreasing  
 - validation loss began to increase  
-This indicates that purely local feature extraction limits the model when **large-scale atmospheric structures** drive the evolution of temperature.
+This indicates that purely local feature extraction limits the model when large-scale atmospheric structures drive the evolution of temperature.
 
-**Vision Transformers** overcome this limitation by using **global self-attention**, allowing the model to capture relationships **across the entire spatial field**.  
+Vision Transformers overcome this limitation by using global self-attention, allowing the model to capture relationships across the entire spatial field.  
 This makes ViTs better suited for medium-range forecasting, where global context matters more than local texture.  
-The result: **the ViT outperformed the CNN at 21-hour predictions**, validating the transition to a more globally aware architecture.
+The result: the ViT outperformed the CNN at 21-hour predictions, validating the transition to a more globally aware architecture.
 
 
 
