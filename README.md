@@ -24,11 +24,22 @@ This repository contains a set of Jupyter notebooks and helper scripts implement
 - `plotlib.py` — plotting helper
   - Utility for visualizing batches of maps with predicted and true month labels. Used by `CNN_classifier.ipynb`.
 
-## Motivation for CNNs and the Transition to Vision Transformers
+### Why CNNs First — and Why Transition to Vision Transformers
 
-CNNs were chosen as the initial modeling approach because they are highly effective at extracting local spatial patterns in geophysical data such as temperature fields. Their inductive bias—spatial locality and translation invariance—makes them well-suited for tasks like short-term forecasting and seasonal classification, where fine-grained structures (fronts, gradients, small-scale anomalies) carry meaningful signals.
-However, during training of the CNN-based predictor, signs of mild overfitting emerged at longer horizons (e.g., at 21 hours), where the training loss continued to decrease while the validation loss began to rise. This suggests that the model’s reliance on local spatial priors may limit its ability to generalize when longer-range dependencies become dominant.
-Vision Transformers (ViTs) address this limitation by replacing convolutional locality with global self-attention, enabling the model to learn relationships across the entire temperature field. The improved performance of the ViT at the 21-hour horizon highlights the advantage of models capable of capturing global spatial context without being constrained by convolutional receptive fields.
+**CNNs were the natural starting point**: they excel at capturing **local spatial patterns** in temperature fields, leveraging strong inductive biases such as **spatial locality** and **translation invariance**. These properties make them particularly effective for  
+- short-term temperature forecasting  
+- season/month classification  
+- detecting fine-scale structures (fronts, gradients, local anomalies)
+
+**However, CNN forecasting showed early signs of overfitting at longer horizons** (notably at **21 hours**):  
+- training loss kept decreasing  
+- validation loss began to increase  
+This indicates that purely local feature extraction limits the model when **large-scale atmospheric structures** drive the evolution of temperature.
+
+**Vision Transformers** overcome this limitation by using **global self-attention**, allowing the model to capture relationships **across the entire spatial field**.  
+This makes ViTs better suited for medium-range forecasting, where global context matters more than local texture.  
+The result: **the ViT outperformed the CNN at 21-hour predictions**, validating the transition to a more globally aware architecture.
+
 
 
 ## Some Results
