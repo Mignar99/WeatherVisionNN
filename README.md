@@ -24,6 +24,13 @@ This repository contains a set of Jupyter notebooks and helper scripts implement
 - `plotlib.py` — plotting helper
   - Utility for visualizing batches of maps with predicted and true month labels. Used by `CNN_classifier.ipynb`.
 
+## Motivation for CNNs and the Transition to Vision Transformers
+
+CNNs were chosen as the initial modeling approach because they are highly effective at extracting local spatial patterns in geophysical data such as temperature fields. Their inductive bias—spatial locality and translation invariance—makes them well-suited for tasks like short-term forecasting and seasonal classification, where fine-grained structures (fronts, gradients, small-scale anomalies) carry meaningful signals.
+However, during training of the CNN-based predictor, signs of mild overfitting emerged at longer horizons (e.g., at 21 hours), where the training loss continued to decrease while the validation loss began to rise. This suggests that the model’s reliance on local spatial priors may limit its ability to generalize when longer-range dependencies become dominant.
+Vision Transformers (ViTs) address this limitation by replacing convolutional locality with global self-attention, enabling the model to learn relationships across the entire temperature field. The improved performance of the ViT at the 21-hour horizon highlights the advantage of models capable of capturing global spatial context without being constrained by convolutional receptive fields.
+
+
 ## Some Results
 
 The following summarizes the performance of the models implemented in this repository.  
@@ -53,35 +60,6 @@ A Vision Transformer architecture was tested on the same forecasting task.
 ![ViT_pred](images/ViT_pred.png)
 ![ViT_RMSE](images/ViT_RMSE.png)
 
-## Quick start / Installation
-
-1. (Recommended) Create and activate a Python virtual environment:
-
-   python -m venv .venv
-   source .venv/bin/activate
-
-2. Install the Python dependencies listed in `requirements.txt`:
-
-   pip install -r requirements.txt
-
-Notes about PyTorch:
-- The notebooks use `torch`. For best support of CUDA or Apple MPS, install the `torch` wheel that matches your platform following the official installation instructions — the simple `pip install -r requirements.txt` will attempt to install a compatible CPU/CUDA build but you may prefer to follow the instructions on https://pytorch.org to choose the correct build for GPU or MPS acceleration.
-
-## Usage
-
-- Start Jupyter Lab / Notebook from the repository root:
-
-  jupyter lab
-
-- Open the notebook you want to run (`CNN_predictor.ipynb`, `CNN_classifier.ipynb`, or `Transformer.ipynb`).
-
-- Each notebook contains cells that download the dataset automatically (via `huggingface_hub`) and perform preprocessing. Run the cells in order. Long training cells are implemented with progress reporting and plotting.
-
-## Notes & tips
-
-- Data download: the notebooks download a NetCDF (air temperature) file at runtime. Ensure you have an internet connection the first time you run them.
-- Hardware: training may be slow on CPU. If you have a CUDA GPU or Apple Silicon with MPS, the notebooks automatically select `cuda` or `mps` when available.
-- Checkpoints: if you have pre-trained checkpoints (`vit_best.pth`, `vit_final.pth`) in the repository, the Transformer notebook may load them — check the notebook cells for exact filenames and loading logic.
 
 ## Contact
 
